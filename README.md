@@ -25,7 +25,7 @@ A `Message` is defined by the following data:
 
 An `SMS` is a message with a limited message content length (160 characters).
 
-A `Tweet` is a message which is sent to all of the sender's followers and has a limited content length (118 characters)
+A `Tweet` is a message which is sent to all of the sender's followers and has a limited content length (118 characters).
 
 An `Email` is a message with an additional data field for the message subject.
 
@@ -38,12 +38,14 @@ Implement the `follows()` method of the `Person` class. This method should retur
 Override the `Object`'s `toString()` method for the `Message` class. It should return the type of message followed by the sender's name. If the message has been sent it should also state the date and time if sending. Note that the `timeStamp` field of a message will be `null` until it is sent. For example:
 
 >SMS from Wendy
+
 >Tweet from from Sabrina sent 25/02/2014 04:36
 
 ###Part C
 Override the `toString()` method for the `Email` class. The method should return the subject in double quotations, followed by the sender and the date and time sent (if already sent). For example:
 
 >"Allergy Medication Woes" from Wendy
+
 >"Case Details (private)" from Bob sent 24/09/2013 12:08
 
 ###Part D
