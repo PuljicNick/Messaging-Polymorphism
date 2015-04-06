@@ -18,7 +18,6 @@ public class SecureEmail extends Email {
         String m = getContent();
 
         String encrypted = "";
-
         //encode each character as three digits and add to encrypted String
 
         for (int i = 0; i < m.length(); i++) {

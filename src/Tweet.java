@@ -7,9 +7,10 @@
  */
 public class Tweet extends Message {
     private final int TWEET_SIZE = 118;
-
     //constructor - to be fixed in part (d)
     public Tweet(Person sender, String content) {
-        super(null, sender, content);
+        super(sender.getFollowers(), sender, content);
+        if (content.length() > TWEET_SIZE)
+            setContent(content.substring(0, TWEET_SIZE));
     }
 }

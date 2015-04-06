@@ -51,13 +51,23 @@ public class Message {
 
     //part (b) - override Object's toString method here
 
+    @Override
+    public String toString() {
+        String stamp = "";
+        if (timeStamp != null) {
+            stamp = " sent " + getTimeStamp();
+        }
+        return this.getClass().getName() + " from " + sender.getName() + stamp;
+    }
     /*
-     * Assigning the current timeStamp end then sends message to all
-     * recipients by adding this Message to their unreadMessages list.
-     */
+         * Assigning the current timeStamp end then sends message to all
+         * recipients by adding this Message to their unreadMessages list.
+         */
     public void send() {
         timeStamp = new SimpleDateFormat("dd/MM/yyyy HH:mm").format(Calendar.getInstance().getTime());
-
+        for(Person person : getRecipients()){
+            person.newMessage(this);
+        }
         //to be implemented in part (e)
     }
 }

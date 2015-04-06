@@ -3,7 +3,6 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
         //code for testing only - no need to edit
-
         ArrayList<Person> people = new ArrayList<Person>();
 
         people.add(new Person("Bob", Long.parseLong("86432119321"), "bobthebuilder@gmail.com"));

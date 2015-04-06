@@ -64,7 +64,13 @@ public class Person {
      */
     public boolean follows(Person p) {
         //to be implemented in part (a)
+        Person[] f = p.getFollowers();
 
+        for (Person person : f) {
+            if (this.equals(person)) {
+                return true;
+            }
+        }
         return false;
     }
 
@@ -78,10 +84,10 @@ public class Person {
      */
     public String readNextMessage() {
         //to be implemented in part (f)
-
-        return null; //remove this line
+        readMessages.add(unreadMessages.get(0));
+        unreadMessages.remove(unreadMessages.get(0));
+        return decryptMessage(readMessages.get(readMessages.size() - 1).getContent());
     }
-
     /*
      * Returns an array of Strings containing the calls to
      * the toString method of all unreadMessages and readMessages
@@ -89,8 +95,18 @@ public class Person {
      */
     public String[] getInbox() {
         //to be implemented in part (g)
+        ArrayList<String> inbox = new ArrayList<String>();
 
-        return null; //remove this line
+        for (Message message : unreadMessages){
+            inbox.add("*" + message.toString());
+        }
+        for (Message message : readMessages){
+            inbox.add(message.toString());
+        }
+
+        String[] inboxz = new String[] {inbox.toString()};
+
+        return inboxz;
     }
 
     /*
@@ -99,12 +115,18 @@ public class Person {
      * the method can be reversed.
      */
     private String decryptMessage(String m) {
-
         if (encryptionKey == null)
             return m;
+        /*String k = getEncryptionKey();
 
+        String dencrypted = "";
+        //encode each character as three digits and add to encrypted String
+
+        for (int i = m.length(); i > 0; i--) {
+            dencrypted += (228 - k.substring( i % k.length(), i % k.length() + 1).compareTo(m.substring(i,i+1))) / ((m.length()-i) % 3 + 1);
+        }
         //to be implemented part (h)
-
+ */
         return m; //remove this line
     }
 
@@ -112,4 +134,5 @@ public class Person {
     public String toString() {
         return name;
     }
+
 }

@@ -26,4 +26,14 @@ public class Email extends Message {
      */
 
     //part (c) - override Object's toString method here
+    @Override
+    public String toString() {
+        String stamp = "";
+        String subject = "";
+        subject ="\"" + getSubject() + "\"";
+        if (getTimeStamp() != null) {
+            stamp = " sent " + getTimeStamp();
+        }
+        return subject + " from " + getSender() + stamp;
+    }
 }
